@@ -2,7 +2,7 @@ const puzzleBoard = document.querySelector('#puzzle')
 const solveButton = document.querySelector('#solve-button')
 const solutionDisplay = document.querySelector('#solution')
 const squares = 81
-const submission = []
+let submission = []
 
 //looping for input / we could do that with forEach also
 for (let i = 0; i < squares; i++) {
@@ -54,24 +54,29 @@ const populateValues = (isSolvable, solution) => {
 
 
 const solve = () => { 
+    joinValues()
+    const data = {numbers: submission.join('')} //submission is an object
+    console.log('data', data)
+//if you cant find a way, create one :)
+fetch('http://localhost:8000/solve', {
+    method: 'POST',
+    headers: {
+        'Content-type': 'application/json',
+        'Accept': 'application/json'
+    },
+    //passing the data by not hardcoding them
+    body: JSON.stringify(data)
+}) .then(response => response.json())
+.then(data => {
+    console.log(data)
+    populateValues(data.solvable, data.solution)
+    submission = []
 
-const options = {
-  method: 'POST',
-  url: 'https://solve-sudoku.p.rapidapi.com/',
-  headers: {
-    'content-type': 'application/json',
-    'X-RapidAPI-Host': 'solve-sudoku.p.rapidapi.com',
-    'X-RapidAPI-Key': ''
-  },
-  data: '{"puzzle":"2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3"}'
-};
+})
+   .catch((error) => {
+       console.error('Error:', error)
+   })
 
-axios.request(options).then(function (response) {
-	console.log(response.data);
-    populateValues(response.data.solvable, response.data.solution)
-}).catch(function (error) {
-	console.error(error);
-});
 }
 
 

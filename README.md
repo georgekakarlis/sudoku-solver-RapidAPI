@@ -7,6 +7,9 @@ The logic here is to take the hardcoded data from the API and map them to the ce
 
 Simple, yet useful! :)
 
+What I did was to actually call the API service from a dummy backend which I set with Express and it looks for the port:8000/solve and then the function does all the magic by res(ponse) and req(uest). And we don't get to solve the sudoku by ourselves :(
+
 NOTE*** 
 
-The application will not run with the API, because it is coming from RAPID API hub and it needs your personal key. I am not using .env files due to its simplicity of the project. 
+The application will not run with this API key, because it is coming from RAPID API hub and it NEEDS your personal key. I am using .env file to cover up. 
+

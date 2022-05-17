@@ -1,0 +1,27 @@
+{
+  "name": "sudokusolver",
+  "version": "1.0.0",
+  "description": "sudoku solver",
+  "main": "app.js",
+  "scripts": {
+    "start:backend": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgekakarlis/sudoku-solver-RapidAPI.git"
+  },
+  "author": "georgekakarlis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/georgekakarlis/sudoku-solver-RapidAPI/issues"
+  },
+  "homepage": "https://github.com/georgekakarlis/sudoku-solver-RapidAPI#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
