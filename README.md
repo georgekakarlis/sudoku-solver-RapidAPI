@@ -7,3 +7,6 @@ The logic here is to take the hardcoded data from the API and map them to the ce
 
 Simple, yet useful! :)
 
+NOTE*** 
+
+The application will not run with the API, because it is coming from RAPID API hub and it needs your personal key. I am not using .env files due to its simplicity of the project. 
